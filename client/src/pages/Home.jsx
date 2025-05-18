@@ -4,10 +4,12 @@ import { useEffect } from "react";
 import toast from "react-hot-toast";
 import axios from "axios";
 import MoviesList from "../components/MoviesList";
+import SearchInput from "../components/SearchInput";
 
 const Home = () => {
   const [status, setStatus] = useState("watched");
   const [movies, setMovies] = useState([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -28,6 +30,15 @@ const Home = () => {
     fetchMovies();
   }, [status]);
 
+  const filteredMovies = movies.filter((movie) => {
+    const q = search.toLowerCase();
+    return (
+      movie.title.toLowerCase().includes(q) ||
+      (movie.director && movie.director.toLowerCase().includes(q)) ||
+      (movie.genre && movie.genre.toLowerCase().includes(q))
+    );
+  });
+
   return (
     <div className='flex flex-col items-center min-h-screen w-full p-4 md:p-6 bg-gradient-to-r from-violet-500 to-purple-500'>
       <div className='min-h-96 w-full flex-col h-full items-center justify-items-center'>
@@ -35,8 +46,13 @@ const Home = () => {
           Welcome to Movie Tracker
         </h1>
         <StatusBar status={status} setStatus={setStatus} />
-
-        <MoviesList movies={movies} />
+        <div className='flex justify-center w-full'>
+          <SearchInput
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </div>
+        <MoviesList movies={filteredMovies} />
       </div>
     </div>
   );
