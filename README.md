@@ -83,3 +83,8 @@ npm run dev
 - `GET /movies/:id` - Get movie details
 - `PUT /movies/:id` - Update a movie
 - `DELETE /movies/:id` - Delete a movie
+
+## Deployed Link
+
+You can try the app live here:  
+**[https://movie-watchlist-ashy.vercel.app/](https://movie-watchlist-ashy.vercel.app/)**

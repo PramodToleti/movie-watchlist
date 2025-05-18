@@ -7,7 +7,7 @@ import MoviesList from "../components/MoviesList";
 import SearchInput from "../components/SearchInput";
 
 const Home = () => {
-  const [status, setStatus] = useState("watched");
+  const [status, setStatus] = useState("");
   const [movies, setMovies] = useState([]);
   const [search, setSearch] = useState("");
 
