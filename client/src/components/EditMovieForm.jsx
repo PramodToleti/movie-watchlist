@@ -19,7 +19,7 @@ const EditMovieForm = () => {
     const fetchMovieDetails = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:9000/movies/${movieId}`
+          `https://movie-watchlist-gzt3.onrender.com/movies/${movieId}`
         );
         if (response.status === 200) {
           setMovie(response.data.movie);
@@ -47,7 +47,7 @@ const EditMovieForm = () => {
     e.preventDefault();
     try {
       const response = await axios.put(
-        `http://localhost:9000/movies/${movieId}`,
+        `https://movie-watchlist-gzt3.onrender.com/movies/${movieId}`,
         movie
       );
       if (response.status === 200) {

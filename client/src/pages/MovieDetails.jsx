@@ -13,7 +13,7 @@ const MovieDetails = () => {
     const fetchMovieDetails = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:9000/movies/${movieId}`
+          `https://movie-watchlist-gzt3.onrender.com/movies/${movieId}`
         );
         if (response.status === 200) {
           setMovie(response.data.movie);
@@ -32,9 +32,12 @@ const MovieDetails = () => {
 
   const handleChangeStatus = async (id, watched) => {
     try {
-      const response = await axios.put(`http://localhost:9000/movies/${id}`, {
-        watched,
-      });
+      const response = await axios.put(
+        `https://movie-watchlist-gzt3.onrender.com/movies/${id}`,
+        {
+          watched,
+        }
+      );
       if (response.status === 200) {
         setMovie((prevMovie) => ({ ...prevMovie, watched }));
         toast.success("Movie status updated successfully.");
@@ -49,7 +52,9 @@ const MovieDetails = () => {
 
   const handleDeleteMovie = async (id) => {
     try {
-      const response = await axios.delete(`http://localhost:9000/movies/${id}`);
+      const response = await axios.delete(
+        `https://movie-watchlist-gzt3.onrender.com/movies/${id}`
+      );
       if (response.status === 200) {
         toast.success("Movie deleted successfully.");
         window.location.href = "/";

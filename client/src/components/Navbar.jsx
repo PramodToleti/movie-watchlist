@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const Navbar = () => (
-  <nav className='bg-gray-800 p-4 flex justify-between items-center'>
+  <nav className='bg-violet-800 p-4 flex justify-between items-center'>
     <Link to='/' className='text-white text-xl font-bold'>
       Movie Watchlist
     </Link>

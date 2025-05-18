@@ -12,7 +12,7 @@ const AddMovie = () => {
     setLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:9000/movies",
+        "https://movie-watchlist-gzt3.onrender.com/movies",
         movieData
       );
       if (response.status === 201) {

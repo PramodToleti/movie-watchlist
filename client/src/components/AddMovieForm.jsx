@@ -15,14 +15,17 @@ const AddMovieForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:9000/movies", {
-        title,
-        director,
-        genre,
-        releaseYear,
-        posterUrl,
-        watched,
-      });
+      const response = await axios.post(
+        "https://movie-watchlist-gzt3.onrender.com/movies",
+        {
+          title,
+          director,
+          genre,
+          releaseYear,
+          posterUrl,
+          watched,
+        }
+      );
       if (response.status === 201) {
         toast.success("Movie added successfully!");
         navigate("/");

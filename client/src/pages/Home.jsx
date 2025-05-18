@@ -15,7 +15,7 @@ const Home = () => {
     const fetchMovies = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:9000/movies?status=${status}`
+          `https://movie-watchlist-gzt3.onrender.com/movies?status=${status}`
         );
         if (response.status === 200) {
           setMovies(response.data.movies);
